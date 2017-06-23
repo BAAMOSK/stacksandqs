@@ -35,10 +35,15 @@ createNode(data=null, next=null) {
 
   function peek(stack) {
     //check if empty
-    if(!stack.top) {
-      return 'Nothing there';
+    // if(!stack.top) {
+    //   return 'Nothing there';
+    // }
+    // //structure.node.value
+    // return stack.top.data;
+
+    if(stack.top === null){
+      return null;
     }
-    //structure.node.value
     return stack.top.data;
   }
 
@@ -48,8 +53,13 @@ function display(stack) {
   if(!stack.top) {
     return 'Nothing there';
   }
+  let node = stack.top;
+  while(node !== null) {
+    console.log(node.data);
+    node = node.next;
+  }
   //otherwise display stack
-  console.log(stack);
+  // console.log(stack);
 
 }
 // const dishes = new Stack();
@@ -82,7 +92,7 @@ function checkPalindrome(str) {
   }
   return false;
 }
-console.log(checkPalindrome('car'));
+// console.log(checkPalindrome('car'));
 
 function checkParens(str) {
   const parens = new Stack();
@@ -112,8 +122,33 @@ function checkParens(str) {
         break;
     }
   }
-  console.log(counterA, counterB, counterC);
+  // console.log(counterA, counterB, counterC);
   return (counterA === 0 && counterB === 0 && counterC ===0) ? true : false;
 }
 
-console.log(checkParens('(({[]}))'));
+function parensMatch(string) {
+  var stack = new Stack();
+
+  for(let i=0;i<string.length;i++){
+    var char = string.charAt(i);
+    if(char === '(') {
+      stack.push(char);
+    }
+    else if(char === ')') {
+      var candidate = peek(stack);
+      if(!candidate){
+        console.log('The Error is at character', i+1)
+        return false;
+      }
+      stack.pop()
+    }
+  }
+
+  if(peek(stack)) {
+    return false;
+  }
+  return true;
+}
+
+// console.log(checkParens('(({[]}))'));
+// console.log('PM',parensMatch('(123) )('));
