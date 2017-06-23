@@ -50,19 +50,61 @@ function display(stack) {
   }
   //otherwise display stack
   console.log(stack);
+
 }
+// const dishes = new Stack();
+// console.log('Stack data structure --', dishes);
 
-const dishes = new Stack();
-console.log(dishes.createNode());
+// dishes.push('blue');
+// dishes.push('green');
+// dishes.push('red');
+// console.log(dishes);
+// console.log('shows all dishes -- ', dishes);
 
+// console.log('shows top dish -- ', peek(dishes));
 
-dishes.push('blue');
-dishes.push('green');
-dishes.push('red');
-console.log(dishes);
+// dishes.pop();
+// console.log('the top dish is popped -- ', dishes);
+// display('shows all the dishes', dishes);
 
-console.log(peek(dishes));
+const palindromes = new Stack();
+// palindromes.push('cat');
+palindromes.createNode();
+// console.log(palindromes);
+console.log(palindromes);
 
-dishes.pop();
-console.log(dishes);
-display(dishes);
+function checkPalindrome(str) {
+  for (let i=0; i<str.length; i++){
+    palindromes.push(str.charAt(i));
+  }
+  let revString = '';
+  while(!str.top) {
+    revString += palindromes.pop();
+  }
+  console.log(revString);
+  if(str === revString) {
+    return true;
+  }
+  return false;
+}
+console.log(checkPalindrome('racecar'));
+  // while(str.top) {
+  //   if(str.charAt(i) === str.charAt(j)) {
+  //   //this is first char
+  //   i++;
+  //   //this is last char
+  //   str.charAt(j).pop();
+  //   return true;
+  //   }
+//   }
+//   return false;
+// };
+
+// console.log(checkPalindrome(palindromes));
+//const letters = ABCD
+//push === A B C D
+
+//if letters.pop() = D
+//if letters.top = D
+//pop  === D C B A
+//if letters.push() === letters.pop()
