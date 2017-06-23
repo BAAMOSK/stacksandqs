@@ -67,44 +67,19 @@ function display(stack) {
 // console.log('the top dish is popped -- ', dishes);
 // display('shows all the dishes', dishes);
 
-const palindromes = new Stack();
-// palindromes.push('cat');
-palindromes.createNode();
-// console.log(palindromes);
-console.log(palindromes);
-
 function checkPalindrome(str) {
-  for (let i=0; i<str.length; i++){
+  const palindromes = new Stack();
+  palindromes.createNode();
+  for (let i=0; i<str.length; i++) {
     palindromes.push(str.charAt(i));
   }
   let revString = '';
-  while(!str.top) {
+  while(palindromes.top) {
     revString += palindromes.pop();
   }
-  console.log(revString);
   if(str === revString) {
     return true;
   }
   return false;
 }
-console.log(checkPalindrome('racecar'));
-  // while(str.top) {
-  //   if(str.charAt(i) === str.charAt(j)) {
-  //   //this is first char
-  //   i++;
-  //   //this is last char
-  //   str.charAt(j).pop();
-  //   return true;
-  //   }
-//   }
-//   return false;
-// };
-
-// console.log(checkPalindrome(palindromes));
-//const letters = ABCD
-//push === A B C D
-
-//if letters.pop() = D
-//if letters.top = D
-//pop  === D C B A
-//if letters.push() === letters.pop()
+console.log(checkPalindrome('car'));
