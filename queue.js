@@ -21,10 +21,25 @@ class Queue {
       this.first = node;
     }
   }
+
+  dequeue() {
+    if(!this.first) {
+      return;
+    }
+    //store first in queue into node
+    const node = this.first;
+    //set the new first to be the one after node
+    this.first = node.prev;
+   //if last item in queue, then last is now null
+     if(node === this.last) {
+       this.last = null;
+     }
+  }
 }
 
 const line = new Queue;
 line.enqueue('Tee');
 line.enqueue('Thien');
 line.enqueue('Erza');
+line.dequeue();
 console.log(line);
