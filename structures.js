@@ -21,8 +21,15 @@ createNode(data=null, next=null) {
     //Prev pointer moves to new node
     this.top = node;
   }
-<<<<<<< HEAD
 
+  pop(data) {
+    //declares inputted node as the the top
+    const node = this.top;
+    //take the top of the stack and now make it equal to the one next to the node
+    this.top = node.next;
+    //return removed node
+    return node.data;
+  }
 
 };
 
@@ -34,18 +41,16 @@ createNode(data=null, next=null) {
     //structure.node.value
     return stack.top.data;
   }
-=======
 
-  pop(data) {
-    //declares inputted node as the the top
-    const node = this.top;
-    //take the top of the stack and now make it equal to the one next to the node
-    this.top = node.next;
-    //return removed node
-    return node.data;
+
+function display(stack) {
+  //check if empty
+  if(!stack.top) {
+    return 'Nothing there';
   }
-};
->>>>>>> refs/remotes/origin/master
+  //otherwise display stack
+  console.log(stack);
+}
 
 const dishes = new Stack();
 console.log(dishes.createNode());
@@ -55,9 +60,9 @@ dishes.push('blue');
 dishes.push('green');
 dishes.push('red');
 console.log(dishes);
-<<<<<<< HEAD
+
 console.log(peek(dishes));
-=======
+
 dishes.pop();
 console.log(dishes);
->>>>>>> refs/remotes/origin/master
+display(dishes);
