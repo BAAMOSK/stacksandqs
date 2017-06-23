@@ -1,4 +1,3 @@
-
 class Stack {
   constructor() {
     this.top = null;
@@ -22,8 +21,18 @@ createNode(data=null, next=null) {
     //Prev pointer moves to new node
     this.top = node;
   }
+
+
 };
 
+  function peek(stack) {
+    //check if empty
+    if(!stack.top) {
+      return 'Nothing there';
+    }
+    //structure.node.value
+    return stack.top.data;
+  }
 
 const dishes = new Stack();
 console.log(dishes.createNode());
@@ -33,3 +42,4 @@ dishes.push('blue');
 dishes.push('green');
 dishes.push('red');
 console.log(dishes);
+console.log(peek(dishes));
