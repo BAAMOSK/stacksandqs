@@ -83,3 +83,37 @@ function checkPalindrome(str) {
   return false;
 }
 console.log(checkPalindrome('car'));
+
+function checkParens(str) {
+  const parens = new Stack();
+  let counterA = 0, counterB = 0, counterC = 0;
+
+  for (let i=0; i<str.length; i++) {
+    switch (str[i]) {
+      case '(':
+       counterA++;
+       break;
+      case ')':
+        counterA--;
+        break;
+      case '{':
+        counterB++;
+        break;
+      case '}':
+        counterB--;
+        break;
+      case '[':
+        counterC++;
+        break;
+      case ']':
+        counterC--;
+        break;
+      default:
+        break;
+    }
+  }
+  console.log(counterA, counterB, counterC);
+  return (counterA === 0 && counterB === 0 && counterC ===0) ? true : false;
+}
+
+console.log(checkParens('(({[]}))'));
