@@ -1,5 +1,5 @@
-function createNode(data=null, next=null, prev=null) {
-  return { data, next, prev};
+function createNode(data = null, next = null, prev = null) {
+  return { data, next, prev };
 }
 class Queue {
   constructor() {
@@ -9,7 +9,7 @@ class Queue {
 
   enqueue(data) {
     const node = createNode(data);
-    if(this.last) {
+    if (this.last) {
       //POINTERS
       //changes pointer from next ==> last
       node.next = this.last;
@@ -17,29 +17,39 @@ class Queue {
       this.last.prev = node;
     }
     this.last = node;
-    if(!this.first) {
+    if (!this.first) {
       this.first = node;
     }
   }
 
   dequeue() {
-    if(!this.first) {
+    if (!this.first) {
       return;
     }
     //store first in queue into node
     const node = this.first;
     //set the new first to be the one after node
     this.first = node.prev;
-   //if last item in queue, then last is now null
-     if(node === this.last) {
-       this.last = null;
-     }
+    //if last item in queue, then last is now null
+    if (node === this.last) {
+      this.last = null;
+    }
   }
 }
 
-const line = new Queue;
+function display(data) {
+  // return data;
+  let node = data.first;
+  while(node !== null) {
+    console.log(node.data);
+    node = node.prev;
+  }
+};
+
+const line = new Queue();
 line.enqueue('Tee');
 line.enqueue('Thien');
 line.enqueue('Erza');
-line.dequeue();
-console.log(line);
+// line.dequeue();
+
+display(line);
